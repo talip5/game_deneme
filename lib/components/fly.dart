@@ -30,7 +30,7 @@ class Fly {
         isOffScreen = true;
       }
       //print(flyRect);
-      print(flyRect.top);
+      //print(flyRect.top);
     }
   }
 
