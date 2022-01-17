@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flame/flame.dart';
 import 'package:game_deneme/components/fly.dart';
+import 'package:game_deneme/components/backyard.dart';
 
 class LangawGame extends Game with TapDetector{
   Size screenSize;
   double tileSize;
   List<Fly> flies;
   Random rnd;
+  Backyard background;
 
   LangawGame(){
     initialize();
@@ -21,7 +23,8 @@ class LangawGame extends Game with TapDetector{
     rnd = Random();
     resize(await Flame.util.initialDimensions());
     spawnFly();
-    print(screenSize.width);
+    background = Backyard(this);
+    //print(screenSize.width);
   }
 
   void spawnFly() {
@@ -33,10 +36,7 @@ class LangawGame extends Game with TapDetector{
 
   @override
   void render(Canvas canvas) {
-    Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
-    Paint bgPaint = Paint();
-    bgPaint.color = Color(0xff576574);
-    canvas.drawRect(bgRect, bgPaint);
+    background.render(canvas);
 
     flies.forEach((Fly fly) => fly.render(canvas));
 
