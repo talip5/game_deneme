@@ -6,6 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flame/flame.dart';
 import 'package:game_deneme/components/fly.dart';
 import 'package:game_deneme/components/backyard.dart';
+import 'package:game_deneme/components/house-fly.dart';
 
 class LangawGame extends Game with TapDetector{
   Size screenSize;
@@ -30,7 +31,7 @@ class LangawGame extends Game with TapDetector{
   void spawnFly() {
     double x = rnd.nextDouble() * (screenSize.width - tileSize);
     double y = rnd.nextDouble() * (screenSize.height - tileSize);
-    flies.add(Fly(this, x, y));
+    flies.add(HouseFly(this, x, y));
     print(flies.length);
   }
 
