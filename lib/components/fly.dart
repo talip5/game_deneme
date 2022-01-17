@@ -34,5 +34,6 @@ class Fly {
         flyPaint.color = Color(0xffff4757);
     game.spawnFly();
     //print('Fly');
+    print('control');
   }
 }
